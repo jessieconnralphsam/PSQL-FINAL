@@ -1,0 +1,61 @@
+CREATE USER super_admin WITH PASSWORD 'ADMIN123';
+CREATE USER super_admin WITH PASSWORD 'ADMINAKO' SUPERUSER;
+-- ----------------------------------------------------------------
+CREATE USER admin_sam WITH PASSWORD 'ADMINAKO';
+CREATE USER agent_sam WITH PASSWORD 'AGENT123';
+CREATE USER driver_sam WITH PASSWORD 'DRIVER123';
+CREATE USER passenger_admin WITH PASSWORD 'PASSENGER123';
+
+-- ------------------------------------------------------------
+
+CREATE ROLE bus_manager;
+CREATE ROLE route_manager;
+CREATE ROLE scheduler;
+CREATE ROLE ticketing_manager;
+CREATE ROLE booking_agent;
+CREATE ROLE customer_support;
+CREATE ROLE bus_driver;
+CREATE ROLE passenger;
+GRANT SELECT, INSERT, UPDATE, DELETE ON bus TO bus_manager;
+GRANT SELECT, INSERT, UPDATE, DELETE ON driver TO bus_driver;
+GRANT SELECT, INSERT, UPDATE, DELETE ON bus TO bus_manager;
+GRANT SELECT, INSERT, UPDATE, DELETE ON passenger TO passenger;
+GRANT SELECT, INSERT, UPDATE, DELETE ON passenger TO customer_support;
+GRANT SELECT, INSERT, UPDATE, DELETE ON reservation TO booking_agent;
+GRANT SELECT, INSERT, UPDATE, DELETE ON reservation TO passenger;
+GRANT SELECT, INSERT, UPDATE, DELETE ON routes TO route_manager;
+GRANT SELECT, INSERT, UPDATE, DELETE ON schedule TO scheduler;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ticket TO ticketing_manager;
+
+GRANT SELECT ON schedule_view TO PUBLIC;
+GRANT SELECT ON reservation_details_view TO PUBLIC;
+GRANT SELECT ON ticket_view TO PUBLIC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

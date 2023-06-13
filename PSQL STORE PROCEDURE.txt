@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE bus_reservation.insert_reservation(
+    p_passenger_id integer,
+    p_schedule_id integer,
+    p_seat_number integer
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO bus_reservation.reservation (passenger_id, schedule_id, seat_number)
+    VALUES (p_passenger_id, p_schedule_id, p_seat_number);
+    
+    -- You can add additional logic or validations here if needed
+    
+    COMMIT;
+END;
+$$;
